@@ -17,6 +17,7 @@
         }
 
     </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Hot Restaurant</title>
 </head>
 
@@ -58,8 +59,26 @@
               <h6><a href="api/tables">API Tables</a> | <a href="api/waitlist">API Wait List</a></h6>
     </div>
     <script text="text/javascript">
+
+    $("#submitBtn").on("click", function (event){
+        event.preventDefault();
+        var newReserve = {
+            name: $("#name").val().trim(),
+            phoneNum: $("#phoneNum").val().trim(),
+            email: $("#email").val().trim(),
+            uniqueId: $("#uniqueId").val().trim()
+        }
+
+        //console.log(newReserve);
+
+    $.post("api/tables", newReserve).then(function(data){
+        console.log("Adding reservation...")
+    });
+
+
+    })
         </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 </body>
 
 </html>
