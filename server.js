@@ -71,10 +71,12 @@ app.get('/api/waitlist', function(req, res) {
 app.post('/api/tables', function(req, res) {
     if (tables.length < 5) {
         tables.push(req.body);
+        res.send("tables");
     } else {
         waitlist.push(req.body)
+        res.send("waitlist");
     }
-    res.end();
+
 })
 
 
