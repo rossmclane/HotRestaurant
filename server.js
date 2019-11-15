@@ -6,10 +6,51 @@ var path = require("path");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-// home route
-app.get('/', function (res, req) {
+// Tables Array
+var tables = [
+    {
+        first: "first",
+        second: "second",
+        third: "third",
+        tables: "true"
+    }
+];
+
+// Waitlist Array
+var waitlist = [
+    {
+        first: "first",
+        second: "second",
+        third: "third",
+        waitlist: "true"
+    }
+];
+
+// home view
+app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, "home.html"));
 });
+
+// tables view
+app.get('/tables', function(req, res){
+    res.sendFile(path.join(__dirname, "tables.html"));
+});
+
+// reserve view
+app.get('/reserve', function(req, res){
+    res.sendFile(path.join(__dirname, "reserve.html"));
+});
+
+// tables route
+app.get('/api/tables', function(req, res){
+    res.json(tables);
+});
+
+// waitlist route
+app.get('/api/waitlist', function(req, res){
+    res.json(waitlist);
+});
+
 
 // Listen
 app.listen(PORT, function () {
