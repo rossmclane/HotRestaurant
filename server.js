@@ -13,6 +13,12 @@ var tables = [
         phoneNum: "314-003-7778",
         email: "Manguy@gooogle.com",
         uniqueId: "398idkdd" 
+    },
+    {
+        name: "Ms. Woman",
+        phoneNum: "567-003-7578",
+        email: "Woman@gooogle.com",
+        uniqueId: "dkfjaddo" 
     }
 ];
 
@@ -49,6 +55,17 @@ app.get('/api/tables', function(req, res){
 // waitlist route
 app.get('/api/waitlist', function(req, res){
     res.json(waitlist);
+});
+
+//deletes all data
+app.delete('/api/waitlist', function(req, res){
+    waitlist = [];
+    res.end();
+});
+
+app.delete('/api/tables', function(req, res){
+    tables = [];
+    res.end();
 });
 
 
