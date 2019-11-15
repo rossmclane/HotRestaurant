@@ -6,6 +6,7 @@ var path = require("path");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+<<<<<<< HEAD
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
     // Tables Array
@@ -23,6 +24,27 @@ var waitlist = [{
     third: "third",
     waitlist: "true"
 }];
+=======
+// Tables Array
+var tables = [
+    {
+        name: "Manguy",
+        phoneNum: "314-003-7778",
+        email: "Manguy@gooogle.com",
+        uniqueId: "398idkdd" 
+    }
+];
+
+// Waitlist Array
+var waitlist = [
+    {
+        name: "George",
+        phoneNum: "314-383-3918",
+        email: "george@gooogle.com",
+        uniqueId: "1838eddk"
+    }
+];
+>>>>>>> 01b48fef360c1aa54738d190f46ad67c96d739ec
 
 // home view
 app.get('/', function(req, res) {
