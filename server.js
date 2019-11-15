@@ -9,20 +9,20 @@ var PORT = process.env.PORT || 3000;
 // Tables Array
 var tables = [
     {
-        first: "first",
-        second: "second",
-        third: "third",
-        tables: "true"
+        name: "Manguy",
+        phoneNum: "314-003-7778",
+        email: "Manguy@gooogle.com",
+        uniqueId: "398idkdd" 
     }
 ];
 
 // Waitlist Array
 var waitlist = [
     {
-        first: "first",
-        second: "second",
-        third: "third",
-        waitlist: "true"
+        name: "George",
+        phoneNum: "314-383-3918",
+        email: "george@gooogle.com",
+        uniqueId: "1838eddk"
     }
 ];
 
