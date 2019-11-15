@@ -9,21 +9,8 @@ var PORT = process.env.PORT || 3000;
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-    // Tables Array
-var tables = [{
-    first: "first",
-    second: "second",
-    third: "third",
-    tables: "true"
-}];
 
-// Waitlist Array
-var waitlist = [{
-    first: "first",
-    second: "second",
-    third: "third",
-    waitlist: "true"
-}];
+
 
 // Tables Array
 var tables = [{
@@ -78,14 +65,16 @@ app.delete('/api/tables', function(req, res) {
     res.end();
 })
 
-app.delete('/api/:uniqueID', function(req, res) {
-    const id = req.param.uniqueID;
+app.delete('/api/tables/:uniqueID', function(req, res) {
+    console.log(req.params.uniqueID)
+    const id = req.params.uniqueID;
     for (let i = 0; i < tables.length; i++) {
         if (id === tables[i].uniqueId) {
-            tables = tables[i].slice(i, 1)
+            tables.splice(i, 1)
+            console.log(tables)
         }
-        res.send(tables)
     }
+    res.end
 })
 
 // post new table
