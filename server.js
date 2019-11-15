@@ -68,15 +68,27 @@ app.get('/api/waitlist', function(req, res) {
 
 
 app.delete('/api/tables/:uniqueID', function(req, res) {
-    console.log(req.params.uniqueID)
+    //console.log(req.params.uniqueID)
     const id = req.params.uniqueID;
     for (let i = 0; i < tables.length; i++) {
         if (id === tables[i].uniqueId) {
             tables.splice(i, 1)
-            console.log(tables)
+            //console.log(tables)
         }
     }
-    res.end
+    res.end();
+})
+
+app.delete('/api/waitlist/:uniqueID', function(req, res) {
+    //console.log(req.params.uniqueID)
+    const id = req.params.uniqueID;
+    for (let i = 0; i < waitlist.length; i++) {
+        if (id === waitlist[i].uniqueId) {
+            waitlist.splice(i, 1)
+            //console.log(waitlist)
+        }
+    }
+    res.end();
 })
 
 
