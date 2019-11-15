@@ -78,12 +78,13 @@
 
                 for (let i = 0; i < tdata.length; i++) {
                     var itemobj =
-                        `<h4>Table #${i + 1}</h4>
+                    `<div id="div${tdata[i].uniqueId}"><h4>Table #${i + 1}</h4>
                     <h5>Name: ${tdata[i].name}</h5>
                     <h5>Phone Number: ${tdata[i].phoneNum}</h5>
                     <h5>Email: ${tdata[i].email}</h5>
                     <h5>Unique ID: ${tdata[i].uniqueId}</h5>
-                    <br>`
+                    <button class="deleteBtn btn-danger" id="${tdata[i].uniqueId}">DELETE</button>
+                    <br></div>`
                     $("#tablecard").append(itemobj);
                 }
 
@@ -94,12 +95,13 @@
             $.ajax({ url: "api/waitlist", method: "GET", }).then(function (wdata) {
                 for (let i = 0; i < wdata.length; i++) {
                     var itemobj =
-                        `<h4>List #${i + 1}</h4>
+                        `<div id="div${wdata[i].uniqueId}"><h4>List #${i + 1}</h4>
                     <h5>Name: ${wdata[i].name}</h5>
                     <h5>Phone Number: ${wdata[i].phoneNum}</h5>
                     <h5>Email: ${wdata[i].email}</h5>
                     <h5>Unique ID: ${wdata[i].uniqueId}</h5>
-                    <br>`
+                    <button class="deleteBtn btn-danger" id="${tdata[i].uniqueId}">DELETE</button>
+                    <br></div>`
                     $("#waitcard").append(itemobj);
                 }
             });
@@ -121,10 +123,18 @@
 
         };
 
+        function delete() {
+
+        }
+
+        $(".deleteBtn").on("click", function(event){
+            event.preventDefault();
+        });
+
         $("#clearBtn").on("click", function (event) {
             event.preventDefault();
             clearAll();
-        })
+        });
 
         getTables();
         getWaits();

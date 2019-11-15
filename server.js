@@ -9,21 +9,6 @@ var PORT = process.env.PORT || 3000;
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-    // Tables Array
-var tables = [{
-    first: "first",
-    second: "second",
-    third: "third",
-    tables: "true"
-}];
-
-// Waitlist Array
-var waitlist = [{
-    first: "first",
-    second: "second",
-    third: "third",
-    waitlist: "true"
-}];
 
 // Tables Array
 var tables = [
