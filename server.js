@@ -9,8 +9,14 @@ var PORT = process.env.PORT || 3000;
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> b638489d2147a7edfaf171264cd764b9aa5ee5d0
 
 // Tables Array
+
 var tables = [
     {
         name: "Manguy",
@@ -26,13 +32,16 @@ var tables = [
     }
 ];
 
+
 // Waitlist Array
 var waitlist = [{
+
     name: "George",
     phoneNum: "314-383-3918",
     email: "george@gooogle.com",
     uniqueId: "1838eddk"
 }];
+
 
 
 // home view
@@ -60,6 +69,20 @@ app.get('/api/waitlist', function(req, res) {
     res.json(waitlist);
 });
 
+
+app.delete('/api/tables/:uniqueID', function(req, res) {
+    console.log(req.params.uniqueID)
+    const id = req.params.uniqueID;
+    for (let i = 0; i < tables.length; i++) {
+        if (id === tables[i].uniqueId) {
+            tables.splice(i, 1)
+            console.log(tables)
+        }
+    }
+    res.end
+})
+
+
 //deletes all data
 app.delete('/api/waitlist', function(req, res){
     waitlist = [];
@@ -70,6 +93,7 @@ app.delete('/api/tables', function(req, res){
     tables = [];
     res.end();
 });
+
 // post new table
 app.post('/api/tables', function(req, res) {
     if (tables.length < 5) {
@@ -81,6 +105,7 @@ app.post('/api/tables', function(req, res) {
     }
 
 })
+
 
 
 
