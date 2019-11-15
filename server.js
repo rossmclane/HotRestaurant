@@ -6,7 +6,10 @@ var path = require("path");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-// Tables Array
+
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+    // Tables Array
 var tables = [{
     first: "first",
     second: "second",
@@ -21,6 +24,27 @@ var waitlist = [{
     third: "third",
     waitlist: "true"
 }];
+
+// Tables Array
+var tables = [{
+
+    name: "Manguy",
+    phoneNum: "314-003-7778",
+    email: "Manguy@gooogle.com",
+    uniqueId: "398idkdd"
+
+}];
+
+// Waitlist Array
+var waitlist = [{
+
+    name: "George",
+    phoneNum: "314-383-3918",
+    email: "george@gooogle.com",
+    uniqueId: "1838eddk"
+}];
+
+
 
 // home view
 app.get('/', function(req, res) {
@@ -47,6 +71,7 @@ app.get('/api/waitlist', function(req, res) {
     res.json(waitlist);
 });
 
+
 // delete 
 app.delete('/api/tables', function(req, res) {
     tables = [];
@@ -62,6 +87,21 @@ app.delete('/api/:uniqueID', function(req, res) {
         res.send(tables)
     }
 })
+
+// post new table
+app.post('/api/tables', function(req, res) {
+    if (tables.length < 5) {
+        tables.push(req.body);
+        res.send("tables");
+    } else {
+        waitlist.push(req.body)
+        res.send("waitlist");
+    }
+
+})
+
+
+
 
 // Listen
 app.listen(PORT, function() {
