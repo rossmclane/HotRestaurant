@@ -13,14 +13,22 @@ app.use(express.urlencoded({ extended: true }))
 
 
 // Tables Array
-var tables = [{
 
-    name: "Manguy",
-    phoneNum: "314-003-7778",
-    email: "Manguy@gooogle.com",
-    uniqueId: "398idkdd"
+var tables = [
+    {
+        name: "Manguy",
+        phoneNum: "314-003-7778",
+        email: "Manguy@gooogle.com",
+        uniqueId: "398idkdd" 
+    },
+    {
+        name: "Ms. Woman",
+        phoneNum: "567-003-7578",
+        email: "Woman@gooogle.com",
+        uniqueId: "dkfjaddo" 
+    }
+];
 
-}];
 
 // Waitlist Array
 var waitlist = [{
@@ -59,12 +67,6 @@ app.get('/api/waitlist', function(req, res) {
 });
 
 
-// delete 
-app.delete('/api/tables', function(req, res) {
-    tables = [];
-    res.end();
-})
-
 app.delete('/api/tables/:uniqueID', function(req, res) {
     console.log(req.params.uniqueID)
     const id = req.params.uniqueID;
@@ -76,6 +78,18 @@ app.delete('/api/tables/:uniqueID', function(req, res) {
     }
     res.end
 })
+
+
+//deletes all data
+app.delete('/api/waitlist', function(req, res){
+    waitlist = [];
+    res.end();
+});
+
+app.delete('/api/tables', function(req, res){
+    tables = [];
+    res.end();
+});
 
 // post new table
 app.post('/api/tables', function(req, res) {
