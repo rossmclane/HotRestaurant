@@ -1,0 +1,12 @@
+home.html
+- view tables --> link to view tables page
+- make reservation --> link to reservation page
+- api link gets tables json
+- api link gets wait list json
+
+view-tables.html
+- displays tables
+- displays wait-list
+
+reservation-page.html
+- form with post request
